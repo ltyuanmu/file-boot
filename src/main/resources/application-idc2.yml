@@ -1,0 +1,33 @@
+spring:
+  profiles: idc2
+  datasource:
+    url: jdbc:mysql://172.28.3.252:3306/filedb?useUnicode=true&characterEncoding=UTF-8&amp;amp;autoReconnecteconnect=true
+    username: step
+    password: E8ijJMDbggsSvPF0OzsNW0AhtMNowrnN1/jwRot4KG4oKuPjaz+bOk3bL0ETENVyaQTcdbaaDnEAi/HrJvkb7g==
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filters:  config,wall
+      connectionProperties: config.decrypt=true
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 30000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize:  20
+      statFilter:
+        slowSqlMillis:  500
+        logSlowSql: true
+        mergeSql: true
+
+
+accessToken: 450a38b585934a11b3cc8f10a3007163
+basedir: /data/step/file
+deletedir: /data/step/delete_file
+privatedir: /data/step/private_file
